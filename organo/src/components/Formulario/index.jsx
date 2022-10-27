@@ -13,6 +13,9 @@ const Formulario = ({aoColaboradorCadastrado, times}) => {
     const aoSalvar = (evento) => {
         evento.preventDefault()
         aoColaboradorCadastrado({nome, cargo, imagem, time})
+        setNome('')
+        setCargo('')
+        setImagem('')
     }
 
     return (
