@@ -9,7 +9,7 @@ const Time = ({corSecundaria, corPrimaria, nome, colaboradores}) => {
         <section className='time' style={cssSection}>
             <h3 style={cssH3}>{nome}</h3>
             <div className='colaboradores'>
-                {colaboradores.map(colaborador => <Colaborador corDeFundo={corPrimaria} key={nome} nome={colaborador.nome} cargo={colaborador.cargo} imagem={colaborador.imagem}/>)}
+                {colaboradores.map(colaborador => <Colaborador corDeFundo={corPrimaria} key={nome} nome={colaborador.nome} cargo={colaborador.cargo} imagem={`https://github.com//${colaborador.github}.png`}/>)}
             </div>
         </section>
     )

@@ -7,22 +7,22 @@ import { useState } from 'react'
 const Formulario = ({aoColaboradorCadastrado, times}) => {
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
-    const [imagem, setImagem] = useState('')
+    const [github, setGithub] = useState('')
     const [time, setTime] = useState('')
 
     const aoSalvar = (evento) => {
         evento.preventDefault()
-        aoColaboradorCadastrado({nome, cargo, imagem, time})
+        aoColaboradorCadastrado({nome, cargo, github, time})
         setNome('')
         setCargo('')
-        setImagem('')
+        setGithub('')
         setTime('')
     }
 
     return (
         <section className="formulario">
             <form onSubmit={aoSalvar}>
-                <h2>Prreencha os dados para criar o card do colaborador</h2>
+                <h2>Preencha os dados para criar o card do colaborador</h2>
                 <CampoTexto 
                     obrigatorio={true} 
                     label="Nome" 
@@ -36,10 +36,10 @@ const Formulario = ({aoColaboradorCadastrado, times}) => {
                     valor={cargo}
                     aoAlterado={valor => setCargo(valor)}/>
                 <CampoTexto 
-                    label="Imagem" 
-                    placeholder="Digite o endereço da imagem"
-                    valor={imagem}
-                    aoAlterado={valor => setImagem(valor)}/>
+                    label="Github" 
+                    placeholder="Digite seu usuário do GitHub"
+                    valor={github}
+                    aoAlterado={valor => setGithub(valor)}/>
                 <ListaSuspensa 
                     obrigatorio={true} 
                     label="Time" 

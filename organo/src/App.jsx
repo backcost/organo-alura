@@ -43,28 +43,31 @@ function App() {
       corSecundaria: '#FFEEDF'
     }
   ]
-
-  const [colaboradores, setColaboradores] = useState([])
+  const colaboradoresInicio = [
+    {nome: 'Gabriel', cargo: 'Full Stack Developer', github: 'backcost', time: 'Programação'},
+    {nome: 'Bruna', cargo: 'Front End Developer', github: 'brunacostaferreira', time: 'Front-End'},
+    {nome: 'Alexandre', cargo: 'Diretor', github: 'alexandre-arc', time: 'Inovação e Gestão'}
+  ]
+  const [colaboradores, setColaboradores] = useState(colaboradoresInicio)
   
   const aoColaboradorAdicionado = (colaborador) => {
     setColaboradores([...colaboradores, colaborador])
   }
-
+  console.log(colaboradores)
   return (
-    <div className="App">
+    <div className="App"> 
       <Banner />
       <Formulario 
         times={times.map(time => time.nome)}
         aoColaboradorCadastrado={colaborador => aoColaboradorAdicionado(colaborador)}
       />
       {times.map(time => 
-        <Time 
+      <Time 
         key={time.nome} 
         nome={time.nome} 
         corPrimaria={time.corPrimaria} 
         corSecundaria={time.corSecundaria} 
         colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
-        
       />)}
       <Rodape />
     </div>
